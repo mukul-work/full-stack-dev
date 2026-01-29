@@ -22,3 +22,5 @@ for(let x in arr){
 arr.forEach(function(num){
     console.log(num);
 })
+
+//ODD Loops --> no prior knowledge about the number of iterations
