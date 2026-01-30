@@ -7,3 +7,9 @@ for(let ele in arr){
         console.log(arr[ele]);
     }
 }
+
+arr.forEach(ele => {
+    if(ele%2 === 0){
+        console.log(ele);
+    }
+})
