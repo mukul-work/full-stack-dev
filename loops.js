@@ -41,4 +41,9 @@ for(const char of "Mukul"){
 }
 console.log(`Number of vowels: ${count}`);
 
+// practice
+const colors = ["Red", "Yellow", "Blue"];
+for(const[index, color] of colors.entries()){
+    console.log(index,color);
+}
 //ODD Loops --> no prior knowledge about the number of iterations
