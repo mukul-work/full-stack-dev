@@ -1,10 +1,11 @@
-export default function Footer()
+import './Footer.css'
+export default function Footer(props)
 {
     return(
-        <>
+        <footer>
             <div>
-                <p>© 2026 MyWebsite. All rights reserved</p>
+                <p>© {props.year} MyWebsite. {props.statement}</p>
             </div>
-        </>
+        </footer>
     )
 }
