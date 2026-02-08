@@ -4,17 +4,15 @@ import Nav from "./components/Nav"
 import Home from "./pages/Home"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
+    <div className="app">
       <Header />
       <Nav />
       <main>
         <Home />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
 
