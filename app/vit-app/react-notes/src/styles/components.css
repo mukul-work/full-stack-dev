@@ -1,0 +1,22 @@
+.header {
+  background: #111;
+  color: white;
+}
+
+.nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.topic-card {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+.footer {
+  text-align: center;
+  color: #666;
+}
