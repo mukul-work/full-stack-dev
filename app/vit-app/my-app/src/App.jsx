@@ -12,11 +12,16 @@ function App() { // or export default function App()
   
   return (
     <>
-      <Header title="Mukul Kashyap"/>
-      <h1>Hello</h1>
-      <h2>Hi</h2>
+      <Header />
+      <card>
+        <h1>Hello</h1>
+        <h2>React App</h2>
+      </card>
+      <card1>
+        <h3>hello</h3>
+      </card1>
       <Main />
-      <Footer year={years[1]} statement="All rights reserved"/>
+      <Footer />
     </>
   )
 }

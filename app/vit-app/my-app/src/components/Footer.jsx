@@ -1,11 +1,9 @@
 import './Footer.css'
-export default function Footer(props)
+export default function Footer({card1})
 {
     return(
         <footer>
-            <div>
-                <p>© {props.year} MyWebsite. {props.statement}</p>
-            </div>
+            {card1}
         </footer>
     )
 }
