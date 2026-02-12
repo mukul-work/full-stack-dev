@@ -1,8 +1,34 @@
-export default function EventToDo(){
+export default function EventToDo()
+{
+    function handleSubmit(e){
+        e.preventDefault();
+        const input = document.getElementById("taskInput").value;
+        const taskValue = input.trim();
+        if(taskValue === ""){
+            alert("Please don't enter empty task.");
+            return;
+        }
+
+        const li = document.createElement("li");
+        li.innerHTML = `<span>${taskValue}</span>
+        <button class="deleteBtn">Delete</button>`;
+        const ul = document.getElementById("taskList");
+        ul.appendChild(li);
+    }
+    function handleRemoval(event){
+        if(event.target.className === "deleteBtn"){
+            event.target.parentElement.remove();
+        }
+    }
+
     return(
-        <div>
-            <h1>Event Handling</h1>
-            <button>Click Me</button>
-        </div>
-    )
+        <>
+            <h1>To Do List</h1>
+            <form onSubmit={handleSubmit}>
+                <input type="text" id = "taskInput" name="task" placeholder="Enter a task"/>
+                <input type="submit" value="Add Task" />
+            </form>
+            <ul id="taskList" onClick={handleRemoval}></ul>
+        </>
+    );
 }
