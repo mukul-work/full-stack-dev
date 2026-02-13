@@ -2,7 +2,8 @@ export default function EventToDo()
 {
     function handleSubmit(e){
         e.preventDefault();
-        const input = document.getElementById("taskInput").value;
+        const task = document.getElementById("taskInput");
+        const input = task.value;
         const taskValue = input.trim();
         if(taskValue === ""){
             alert("Please don't enter empty task.");
@@ -14,6 +15,7 @@ export default function EventToDo()
         <button class="deleteBtn">Delete</button>`;
         const ul = document.getElementById("taskList");
         ul.appendChild(li);
+        task.value = "";
     }
     function handleRemoval(event){
         if(event.target.className === "deleteBtn"){
