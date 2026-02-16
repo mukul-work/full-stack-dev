@@ -28,24 +28,44 @@ export default function EventToDo()
     //     }
     // }
 
+    function handleSubmit(e) {
+        e.preventDefault();
+
+        const taskValue = task.trim();
+
+        if (taskValue === "") {
+            alert("Cannot add empty task");
+            return;
+        }
+
+        setTasks((prevTasks) => [...prevTasks, taskValue]);
+        setTask("");
+    }
+
+    function handleDelete(index) {
+        setTasks((prevTasks) =>
+            prevTasks.filter((_, i) => i !== index)
+        );
+    }
 
 
     return(
         <>
             <h1>To Do List</h1>
             <form onSubmit={handleSubmit}>
-                <input type="text" id = "taskInput" name="task" placeholder="Enter a task" value={task} onClick={(e) => setTask(e.target.value)}/>
+                <input type="text" id = "taskInput" name="task" placeholder="Enter a task" value={task} onChange={(e) => setTask(e.target.value)}/>
                 <input type="submit" value="Add Task" />
             </form>
             {/* <ul id="taskList" onClick={handleRemoval}></ul> */}
             <ul>
-                {
-                    task.map((item, index) => (
-                        <li key = {index}>
-                            <span>{item}</span>
-                        </li>
-                    ))
-                }
+                {tasks.map((item, index) => (
+                    <li key={index}>
+                        <span>{item}</span>
+                        <button
+                        className="deleteBtn"
+                        onClick={() => handleDelete(index)}>Delete</button>
+                    </li>
+            ))}
             </ul>
         </>
     );
