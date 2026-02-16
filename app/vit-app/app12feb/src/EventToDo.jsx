@@ -52,12 +52,15 @@ export default function EventToDo()
     return(
         <>
             <h1>To Do List</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="text" id = "taskInput" name="task" placeholder="Enter a task" value={task} onChange={(e) => setTask(e.target.value)}/>
-                <input type="submit" value="Add Task" />
-            </form>
+            <div className="container">
+            <div className="form">
+                <form onSubmit={handleSubmit}>
+                    <input type="text" id = "taskInput" name="task" placeholder="Enter a task" value={task} onChange={(e) => setTask(e.target.value)}/>
+                    <input type="submit" id="submitBtn" value="Add Task" />
+                </form>
+            </div>
             {/* <ul id="taskList" onClick={handleRemoval}></ul> */}
-            <ul>
+            <ul className="list">
                 {tasks.map((item, index) => (
                     <li key={index}>
                         <span>{item}</span>
@@ -67,6 +70,7 @@ export default function EventToDo()
                     </li>
             ))}
             </ul>
+            </div>
         </>
     );
 }
