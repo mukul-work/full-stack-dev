@@ -1,5 +1,6 @@
 import './App.css'
 import Header from './Components/Header';
+import ProductList from './Components/ProductList';
 import {useState} from 'react';
 function App() {
   const [cart, setCart] = useState([]);
@@ -23,9 +24,16 @@ function App() {
       image: "https://imgs.search.brave.com/ommwQeYNCngBZgBCFtIB8rxgqRfJ0lQt8wnDXiWYap0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/MzFUdUU1SFZGZUwu/anBn"
     }
   ];
+
+  function addToCart(product){
+    setCart([...cart, product]);
+    console.log("Hello");
+  }
+
   return (
     <>
       <Header cartCount={cart.length}/>
+      <ProductList products={products} addToCart = {addToCart}/>
     </>
   )
 }
