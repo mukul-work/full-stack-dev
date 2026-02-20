@@ -1,9 +1,11 @@
 import './App.css'
 import Header from './Components/Header';
 import ProductList from './Components/ProductList';
+import CartList from './Components/CartList';
 import {useState} from 'react';
 function App() {
   const [cart, setCart] = useState([]);
+  const [totalAmt, setTotalAmt] = useState(0);
   const products = [
     {
       id: 1,
@@ -25,15 +27,22 @@ function App() {
     }
   ];
 
+  function removeFromCart(id) {
+    setCart(cart.filter(item => item.id !== id));
+    console.log(`Remove product with id: ${id}`);
+}
+
   function addToCart(product){
-    setCart([...cart, product]);
-    console.log("Hello");
+    setCart((cart) => [...cart, product]);
+    console.log(`Added product with id: ${product.id}`);
+    setTotalAmt((totalAmt) => totalAmt + product.price);
   }
 
   return (
     <>
       <Header cartCount={cart.length}/>
       <ProductList products={products} addToCart = {addToCart}/>
+      <CartList cart={cart} removeFromCart={removeFromCart} totalAmt={totalAmt}/>
     </>
   )
 }

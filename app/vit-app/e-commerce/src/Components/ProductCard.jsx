@@ -1,4 +1,4 @@
-export function ProductCard({product, addToCart}){
+export function ProductCard({product, addToCart, removeFromCart}){
     return(
         <>
             <img src={product.image} alt={product.name} />
