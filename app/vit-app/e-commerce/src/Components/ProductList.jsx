@@ -1,7 +1,8 @@
 import { ProductCard } from "./ProductCard";
+
 export default function ProductList({products, addToCart, removeFromCart}){
     return(
-        <div>
+        <div className="productList">
             {products.map(product => 
             <ProductCard 
             key={product.id}

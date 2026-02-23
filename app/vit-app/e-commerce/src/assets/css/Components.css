@@ -25,8 +25,16 @@
 
 .productList {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .productCard{
-    
+    display: flex;
+    flex-direction: column;
+}
+
+.top img {
+    width: 1fr;
+    height: 250px;
+    object-fit: cover;
 }
