@@ -42,9 +42,9 @@ function App() {
 
   return (
     <>
-      <Header cartCount={cart.length} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       <ProductList products={filteredProducts} addToCart = {addToCart}/>
-      <CartList cart={cart} removeFromCart={removeFromCart} totalAmt={totalAmt}/>
+      <CartList cartCount={cart.length} cart={cart} removeFromCart={removeFromCart} totalAmt={totalAmt}/>
     </>
   )
 }
