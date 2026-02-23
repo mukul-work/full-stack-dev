@@ -6,6 +6,7 @@ import {useState} from 'react';
 function App() {
   const [cart, setCart] = useState([]);
   const [totalAmt, setTotalAmt] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
   const products = [
     {
       id: 1,
@@ -26,6 +27,7 @@ function App() {
       image: "https://imgs.search.brave.com/ommwQeYNCngBZgBCFtIB8rxgqRfJ0lQt8wnDXiWYap0/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/MzFUdUU1SFZGZUwu/anBn"
     }
   ];
+  const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
   function removeFromCart(id) {
     setCart(cart.filter(item => item.id !== id));
@@ -40,8 +42,8 @@ function App() {
 
   return (
     <>
-      <Header cartCount={cart.length}/>
-      <ProductList products={products} addToCart = {addToCart}/>
+      <Header cartCount={cart.length} searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <ProductList products={filteredProducts} addToCart = {addToCart}/>
       <CartList cart={cart} removeFromCart={removeFromCart} totalAmt={totalAmt}/>
     </>
   )
