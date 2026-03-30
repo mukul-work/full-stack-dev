@@ -1,33 +1,46 @@
-import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import NewsCard from "./components/NewsCard";
+import './App.css'
 
 function App() {
-  const [user, setUser] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get("https://jsonplaceholder.typicode.com/users")
-  //     .then((res) => setUser(res.data))
-  //     .catch((err) => console.log(err));
-  // }, []);
+  const [news, setNews] = useState([]);
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
 
   async function fetchData() {
     try {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/users");
-      setUser(res.data);
-    }catch(e){
-      console.log(e)
+      const res = await fetch(
+        "https://newsapi.org/v2/everything?q=tesla&from=2026-02-20&sortBy=publishedAt&apiKey=1219b238c82e4492b629be93924cacd6"
+      );
+
+      const data = await res.json();
+
+      setNews(data.articles);
+      setLoading(false);
+    } catch (err) {
+      setError("Failed to load news");
+      setLoading(false);
     }
   }
-  fetchData();
-  return(
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if (loading) return <h2 className="status">Loading...</h2>;
+  if (error) return <h2 className="status">{error}</h2>;
+
+  return (
     <>
-      <div>Fetch Api using Axios</div>
-      <ul>
-        {user.map(user => <li key={user.id}>{user.name}</li>)}
-      </ul>
+      <div className="app-title">Latest News</div>
+
+      <div className="news-container">
+        {news.map((article, index) => (
+          <NewsCard key={index} article={article} />
+        ))}
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

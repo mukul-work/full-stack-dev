@@ -17,6 +17,41 @@
   }
 }
 
+/* Page styling */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f1f5f9;
+}
+
+/* Top heading */
+.app-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  padding: 20px;
+  color: #1e293b;
+}
+
+/* Container for all cards */
+.news-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Loading & error styling */
+.status {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 20px;
+  color: #475569;
+}
+
 .hero {
   position: relative;
 
