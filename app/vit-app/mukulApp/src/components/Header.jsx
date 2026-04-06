@@ -1,10 +1,9 @@
-function Header(){
+export default function Header()
+{
     return(
-        <>
-        <h1>Hello World</h1>
-        <h2>Mukul</h2>
-        </>
+        <div className="text-center">
+        <h1> News Website</h1>
+
+        </div>
     )
 }
-
-export default Header
