@@ -16,4 +16,3 @@ export default function CartList({cartCount,  cart, removeFromCart, totalAmt }) 
         </div>
     );
 }
-
