@@ -8,7 +8,7 @@
 //   const {lang,setLang}=useContext(LangContext);
 
 //   return(
-   
+
 // <div
 //   style={{
 //     background: theme === "light" ? "#fff" : "#333",
@@ -37,7 +37,8 @@ import { ThemeContext, UserContext, LangContext } from './context';
 
 const App = () => {
 
-  const { state, dispatch } = useContext(ThemeContext);
+  // const { state, dispatch } = useContext(ThemeContext);
+  const { state, dispatch } = useContext(GlobalContext);
   const { theme, user, lang } = state;
 
   return (
@@ -53,9 +54,9 @@ const App = () => {
       <p>User:{user.name}</p>
       <p>Lang:{lang}</p>
 
-      <button onClick={() => dispatch({type: "TOGGLE_THEME"})}>ThemeChange</button>
-      <button onClick={() => dispatch({type: "SET_LANG", payload: "en"})}>en</button>
-      <button onClick={() => dispatch({type: "SET_LANG", payload: "fr"})}>fr</button>
+      <button onClick={() => dispatch({ type: "TOGGLE_THEME" })}>ThemeChange</button>
+      <button onClick={() => dispatch({ type: "SET_LANG", payload: "en" })}>en</button>
+      <button onClick={() => dispatch({ type: "SET_LANG", payload: "fr" })}>fr</button>
 
     </div>
   )

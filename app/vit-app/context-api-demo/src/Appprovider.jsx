@@ -63,14 +63,17 @@ const Appprovider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     return (
-        <ThemeContext.Provider value={{ state, dispatch }}>
-            <UserContext.Provider value={{ state, dispatch }}>
-                <LangContext.Provider value={{ state, dispatch }}>
-                    {children}
-                </LangContext.Provider>
+        // <ThemeContext.Provider value={{ state, dispatch }}>
+        //     <UserContext.Provider value={{ state, dispatch }}>
+        //         <LangContext.Provider value={{ state, dispatch }}>
+        //             {children}
+        //         </LangContext.Provider>
 
-            </UserContext.Provider>
-        </ThemeContext.Provider>
+        //     </UserContext.Provider>
+        // </ThemeContext.Provider>
+        <GlobalContext.Provider value={{state, dispatch}}>
+            {children}
+        </GlobalContext.Provider>
     )
 }
 
