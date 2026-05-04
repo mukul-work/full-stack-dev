@@ -1,5 +1,8 @@
-import {createStore} from 'redux';
+// traditional REDUX
+// import {createStore} from 'redux';
 
-import { todoreducer} from './reducer';
+// import { todoreducer} from './reducer';
 
-export const store=createStore(todoreducer);
+// export const store=createStore(todoreducer);
+
+
